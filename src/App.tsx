@@ -47,7 +47,7 @@ const App: FC = () => {
   return (
     <>
       <ModalMenu isModalOpen={isModalOpen} setModalOpen={setModalState} />
-      <main className="w-full h-full relative">
+      <main className="w-full h-full relative scroll-mt-24" id="top">
         <section className="h-fit w-screen bg-texture bg-no-repeat">
           <div className="w-full h-full flex flex-col items-center justify-center">
             <div className="w-full h-full flex flex-row-reverse items-center relative">
@@ -83,7 +83,10 @@ const App: FC = () => {
               </div>
             </div>
           </div>
-          <div className="w-full h-fit flex flex-col items-center justify-center gap-4 mt-10">
+          <div
+            className="w-full h-fit flex flex-col items-center justify-center gap-4 mt-24 scroll-mt-32"
+            id="Service"
+          >
             <p className="text-[#C4C4C4] text-xl">Complete Package</p>
 
             <div className="w-full h-fit flex flex-col items-center justify-center gap-10 mt-2">
@@ -130,7 +133,11 @@ const App: FC = () => {
             </div>
           </div>
         </section>
-        <section className="w-full h-fit flex flex-col items-center justify-center mt-10">
+
+        <section
+          className="w-full h-fit flex flex-col items-center justify-center mt-24 scroll-mt-32"
+          id="Portfolio"
+        >
           <p className="text-[#C4C4C4] text-xl">Portfolio</p>
           <div className="w-full h-fit flex flex-col items-center justify-center gap-10 mt-2">
             <div className="flex flex-col items-center justify-center font-bold text-2xl lg:text-4xl">
@@ -145,7 +152,11 @@ const App: FC = () => {
             <Button title="Learn More" />
           </div>
         </section>
-        <section className="h-fit w-screen flex flex-col items-center justify-center mt-10">
+
+        <section
+          className="h-fit w-screen flex flex-col items-center justify-center mt-24 scroll-mt-32 "
+          id="Testimonials"
+        >
           <p className="text-[#C4C4C4] text-xl">Testimonials</p>
           <div className="w-full h-fit flex flex-col items-center justify-center gap-10 mt-2">
             <div className="flex flex-col items-center justify-center font-bold text-2xl lg:text-4xl">
@@ -182,6 +193,7 @@ const App: FC = () => {
             </div>
           </div>
         </section>
+
         <footer className="w-screen flex flex-col items-center justify-center my-10">
           <div className="w-4/5 flex flex-col lg:flex-row items-center justify-between border-y-2 border-[#C4C4C4] py-10 gap-10">
             <div className="flex flex-col items-center lg:items-start gap-10 flex-1">

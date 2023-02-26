@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useState, useEffect } from "react";
 import Hamburger from "hamburger-react";
 import albaLogo from "../assets/alba-logo.svg";
 import Button from "./Button";
@@ -6,8 +6,15 @@ import useNavbarStore from "../hooks/zustand/useNavbarStore";
 import useModalStore from "../hooks/zustand/userModalStore";
 import useUserStore from "../hooks/zustand/useUserStore";
 import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
-const links: String[] = ["Service", "About", "Portfolio", "Blog", "Career"];
+const links: string[] = [
+  "Service",
+  "Portfolio",
+  "Testimonials",
+  "Blog",
+  "Career",
+];
 
 const Navbar: FC = () => {
   const [_, setMobileNavState] = useState<boolean>(false);
@@ -17,18 +24,19 @@ const Navbar: FC = () => {
 
   return (
     <header className="h-24 w-full flex items-center justify-between lg:justify-center px-10 gap-[85px] font-display sticky top-0 z-30 bg-white shadow-nav-shadow">
-      <Link to="/">
+      <HashLink smooth to={`/#top`}>
         <img src={albaLogo} alt="alba-logo" />
-      </Link>
+      </HashLink>
       <ul className="lg:flex items center gap-[85px] font-bold text-sm md:text-base lg:text-lg hidden ">
         {links.map((e, i) => (
           <li key={i}>
-            <a
-              href="#"
-              className="relative after:h-1 after:w-[0%] after:content-[''] after:absolute   after:left-0 after:-bottom-[6px] after:bg-[#FFCE07] hover:after:rounded-lg after:duration-300 hover:after:w-full"
+            <HashLink
+              smooth
+              to={`/#${e}`}
+              className="relative after:h-1 after:w-[0%] after:content-[''] after:absolute after:left-0 after:-bottom-[6px] after:bg-[#FFCE07] hover:after:rounded-lg after:duration-300 hover:after:w-full cursor-pointer"
             >
               {e}
-            </a>
+            </HashLink>
           </li>
         ))}
       </ul>
@@ -47,7 +55,7 @@ const Navbar: FC = () => {
       <div className="block lg:hidden">
         <Hamburger
           toggled={isNavOpen}
-          toggle={setMobileNavState}
+          // toggle={setMobileNavState}
           onToggle={(e) => setNavState(e)}
           direction="left"
           color="#272727"
